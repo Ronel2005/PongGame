@@ -4,6 +4,10 @@ import java.util.*;
 import javax.swing.*;
 
 public class GamePanel extends JPanel implements Runnable {
+	
+
+    String player1Name;
+    String player2Name;
 
 	static final int GAME_WIDTH = 1000;
 	static final int GAME_HEIGHT = (int)(GAME_WIDTH * (0.55555) );
@@ -22,7 +26,7 @@ public class GamePanel extends JPanel implements Runnable {
 	Score score;
 	
 	// constructor for game panel
-	GamePanel(){
+	GamePanel(String player1Name, String player2Name) {
 		 
 		newPaddle();
 		newBall();
@@ -33,6 +37,8 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		gameThread = new Thread(this);
 		gameThread.start();
+		this.player1Name = player1Name;
+        this.player2Name = player2Name;
 	}
 	
 	// declaring classes 
@@ -58,13 +64,18 @@ public class GamePanel extends JPanel implements Runnable {
 	}
 	
 	public void draw(Graphics g) {
-		paddle1.draw(g);
-		paddle2.draw(g);
-		ball.draw(g);
+	    paddle1.draw(g);
+	    paddle2.draw(g);
+	    ball.draw(g);
 	    score.updateHighestScore();
-		score.draw(g);
+	    score.draw(g);
+
+	    // Display player names
+	    g.setColor(Color.white);
+	    g.drawString(player1Name, 50, 50);
+	    g.drawString(player2Name, GAME_WIDTH - 150, 50);
 	}
-	
+
 	public void move() {
 		//makes the movement of paddles and ball smoother
 		paddle1.move();

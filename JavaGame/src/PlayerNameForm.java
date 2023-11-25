@@ -33,6 +33,7 @@ public class PlayerNameForm extends JFrame {
 
                 if (!player1Name.isEmpty() && !player2Name.isEmpty()) {
                     startPongGame(player1Name, player2Name);
+                    Form form = new Form(player1Name, player2Name);
                     dispose(); // Close the form after submission
                 } else {
                     JOptionPane.showMessageDialog(PlayerNameForm.this,
@@ -56,7 +57,7 @@ public class PlayerNameForm extends JFrame {
 
     private void startPongGame(String player1Name, String player2Name) {
         Form form = new Form(player1Name, player2Name);
-        GameFrame frame = new GameFrame();
+       
     }
 
     public static void main(String[] args) {
