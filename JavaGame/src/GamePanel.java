@@ -63,18 +63,22 @@ public class GamePanel extends JPanel implements Runnable {
 		g.drawImage(image, 0,0,this);
 	}
 	
-	public void draw(Graphics g) {
-	    paddle1.draw(g);
-	    paddle2.draw(g);
-	    ball.draw(g);
-	    score.updateHighestScore();
-	    score.draw(g);
+    public void draw(Graphics g) {
+        paddle1.draw(g);
+        paddle2.draw(g);
+        ball.draw(g);
+        score.updateHighestScore();
+        score.draw(g);
 
-	    // Display player names
-	    g.setColor(Color.white);
-	    g.drawString(player1Name, 50, 50);
-	    g.drawString(player2Name, GAME_WIDTH - 150, 50);
-	}
+        // Display player names
+        g.setColor(Color.white);
+        g.drawString(player1Name, 50, 50);
+        g.drawString(player2Name, GAME_WIDTH - 150, 50);
+
+        // Display the highest score beneath Player 2's name
+        g.setFont(new Font("IMPACT", Font.BOLD, 15));
+        g.drawString("High Score: " + score.highestScore, GAME_WIDTH - 150, 70);
+    }
 
 	public void move() {
 		//makes the movement of paddles and ball smoother
