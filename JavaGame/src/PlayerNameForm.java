@@ -24,7 +24,7 @@ public class PlayerNameForm extends JFrame {
         JLabel player2Label = new JLabel("Player 2 Name:");
         player2TextField = new JTextField();
 
-        JButton submitButton = new JButton("Submit");
+        JButton submitButton = new JButton("Start Game");
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,9 +32,8 @@ public class PlayerNameForm extends JFrame {
                 String player2Name = player2TextField.getText();
 
                 if (!player1Name.isEmpty() && !player2Name.isEmpty()) {
-                    startPongGame(player1Name, player2Name);
-                    Form form = new Form(player1Name, player2Name);
-                    dispose(); // Close the form after submission
+                    openPongGame(player1Name, player2Name);
+                    dispose(); // Close the form after starting the game
                 } else {
                     JOptionPane.showMessageDialog(PlayerNameForm.this,
                             "Please enter names for both players.",
@@ -55,16 +54,20 @@ public class PlayerNameForm extends JFrame {
         setVisible(true);
     }
 
-    private void startPongGame(String player1Name, String player2Name) {
-        Form form = new Form(player1Name, player2Name);
-       
+    private void openPongGame(String player1Name, String player2Name) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new GameFrame(player1Name, player2Name);
+            }
+        });
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new PlayerNameForm();
+                new StartScreen();
             }
         });
     }
