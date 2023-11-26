@@ -44,13 +44,13 @@ public class GamePanel extends JPanel implements Runnable {
 	// declaring classes 
 	public void newBall() {
 		//random = new Random();
-		// place the ball in the center of the screen
+		// places the ball in the center of  screen
 		ball = new Ball((GAME_WIDTH/2) - (BALL_DIAMETER/2),(GAME_HEIGHT/2) - (BALL_DIAMETER/2),BALL_DIAMETER, BALL_DIAMETER );
 		
 	}
 	
 	public void newPaddle(){
-		// center the paddles on the screen
+		// centers paddles on screen
 		paddle1 = new Paddle(0, (GAME_HEIGHT/2) - (PADDLE_HEIGHT/2), PADDLE_WIDTH, PADDLE_HEIGHT, 1);
 		paddle2 = new Paddle(GAME_WIDTH - PADDLE_WIDTH, (GAME_HEIGHT/2) - (PADDLE_HEIGHT/2), PADDLE_WIDTH, PADDLE_HEIGHT, 2);
 	}
@@ -75,7 +75,7 @@ public class GamePanel extends JPanel implements Runnable {
         g.drawString(player1Name, 50, 50);
         g.drawString(player2Name, GAME_WIDTH - 150, 50);
 
-        // Display the highest score beneath Player 2's name
+        // Display highest score beneath Player 2 name
         g.setFont(new Font("IMPACT", Font.BOLD, 15));
         g.drawString("High Score: " + score.highestScore, GAME_WIDTH - 150, 70);
     }

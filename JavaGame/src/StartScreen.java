@@ -27,7 +27,7 @@ public class StartScreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 openPlayerNameForm();
-                dispose(); // Close the start screen after starting the game
+                dispose(); // Closes the start screen after starting the game
             }
         });
         buttonPanel.add(startButton);

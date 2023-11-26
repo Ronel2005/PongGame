@@ -33,7 +33,7 @@ public class PlayerNameForm extends JFrame {
 
                 if (!player1Name.isEmpty() && !player2Name.isEmpty()) {
                     openPongGame(player1Name, player2Name);
-                    dispose(); // Close the form after starting the game
+                    dispose(); // Close the form after starting game
                 } else {
                     JOptionPane.showMessageDialog(PlayerNameForm.this,
                             "Please enter names for both players.",
