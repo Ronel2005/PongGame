@@ -34,8 +34,8 @@ public class Score extends Rectangle {
         g.drawString(String.valueOf(player2), (GAME_WIDTH / 2) + 20, 50);
 
         // Display the highest score in the top right corner
-       // g.setFont(new Font("IMPACT", Font.BOLD, 30));
-       // g.drawString("High Score: " + highestScore, GAME_WIDTH - 250, 50);
+        g.setFont(new Font("IMPACT", Font.BOLD, 30));
+        g.drawString("High Score: " + highestScore, GAME_WIDTH - 250, 50);
     }
 
     //update highest score if a new high score is achieved
