@@ -11,14 +11,18 @@ public class StartScreen extends JFrame {
 
     private void initializeComponents() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300, 150);
-        setTitle("Pong Game Start Screen");
-        setLayout(new GridLayout(3, 1));
+        setSize(400, 200);
+        setTitle("Pong Game");
+        setLayout(new BorderLayout());
 
+        JPanel titlePanel = new JPanel();
         JLabel titleLabel = new JLabel("Pong Game");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        titlePanel.add(titleLabel);
 
+        JPanel buttonPanel = new JPanel();
         JButton startButton = new JButton("Start Game");
+        startButton.setFont(new Font("Arial", Font.PLAIN, 16));
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -26,10 +30,10 @@ public class StartScreen extends JFrame {
                 dispose(); // Close the start screen after starting the game
             }
         });
+        buttonPanel.add(startButton);
 
-        add(titleLabel);
-        add(startButton);
-        add(new JLabel()); // Empty label for spacing
+        add(titlePanel, BorderLayout.NORTH);
+        add(buttonPanel, BorderLayout.CENTER);
 
         setLocationRelativeTo(null);
         setVisible(true);
